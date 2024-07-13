@@ -1,0 +1,87 @@
+{
+    "name": "mongodb/laravel-mongodb",
+    "description": "A MongoDB based Eloquent model and Query builder for Laravel",
+    "keywords": [
+        "laravel",
+        "eloquent",
+        "mongodb",
+        "mongo",
+        "database",
+        "model"
+    ],
+    "homepage": "https://github.com/mongodb/laravel-mongodb",
+    "support": {
+        "issues": "https://www.mongodb.com/support",
+        "security": "https://www.mongodb.com/security"
+    },
+    "authors": [
+        { "name": "Andreas Braun", "email": "andreas.braun@mongodb.com", "role": "Leader" },
+        { "name": "Jérôme Tamarelle", "email": "jerome.tamarelle@mongodb.com", "role": "Maintainer" },
+        { "name": "Jeremy Mikola", "email": "jmikola@gmail.com", "role": "Maintainer" },
+        { "name": "Jens Segers", "homepage": "https://jenssegers.com", "role": "Creator" }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^8.1",
+        "ext-mongodb": "^1.15",
+        "composer-runtime-api": "^2.0.0",
+        "illuminate/cache": "^10.36|^11",
+        "illuminate/container": "^10.0|^11",
+        "illuminate/database": "^10.30|^11",
+        "illuminate/events": "^10.0|^11",
+        "illuminate/support": "^10.0|^11",
+        "mongodb/mongodb": "^1.15"
+    },
+    "require-dev": {
+        "mongodb/builder": "^0.2",
+        "league/flysystem-gridfs": "^3.28",
+        "league/flysystem-read-only": "^3.0",
+        "phpunit/phpunit": "^10.3",
+        "orchestra/testbench": "^8.0|^9.0",
+        "mockery/mockery": "^1.4.4",
+        "doctrine/coding-standard": "12.0.x-dev",
+        "spatie/laravel-query-builder": "^5.6",
+        "phpstan/phpstan": "^1.10"
+    },
+    "conflict": {
+        "illuminate/bus": "< 10.37.2"
+    },
+    "suggest": {
+        "league/flysystem-gridfs": "Filesystem storage in MongoDB with GridFS",
+        "mongodb/builder": "Provides a fluent aggregation builder for MongoDB pipelines"
+    },
+    "minimum-stability": "dev",
+    "replace": {
+        "jenssegers/mongodb": "self.version"
+    },
+    "autoload": {
+        "psr-4": {
+            "MongoDB\\Laravel\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MongoDB\\Laravel\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MongoDB\\Laravel\\MongoDBServiceProvider",
+                "MongoDB\\Laravel\\MongoDBQueueServiceProvider",
+                "MongoDB\\Laravel\\MongoDBBusServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test:coverage": "phpunit --coverage-clover ./coverage.xml",
+        "cs": "phpcs",
+        "cs:fix": "phpcbf"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}
